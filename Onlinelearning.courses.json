@@ -1,0 +1,215 @@
+[{
+  "_id": {
+    "$oid": "673c59dc2b6e94c5dfa4776a"
+  },
+  "id": 1,
+  "title": "Introduction to Programming",
+  "description": "Learn the basics of programming using Python. Ideal for beginners.",
+  "instructor": {
+    "$oid": "673c83c32bac4e19edd8b043"
+  },
+  "content": [
+    "Introduction to Python",
+    "Variables and Data Types",
+    "Loops and Conditional Statements",
+    "Functions and Modules"
+  ],
+  "duration": "4 weeks",
+  "price": "$99",
+  "enrolledStudents": 204,
+  "image": "https://via.placeholder.com/150",
+  "__v": 8,
+  "progress": [],
+  "ratings": [],
+  "reviews": [
+    {
+      "rating": 3,
+      "_id": {
+        "$oid": "673ef94b82f16f422255fd24"
+      }
+    },
+    {
+      "rating": 3,
+      "_id": {
+        "$oid": "673f01f0b537ee1fb2e6f703"
+      }
+    },
+    {
+      "rating": 5,
+      "_id": {
+        "$oid": "673f06cb4f341e98872c1353"
+      }
+    }
+  ],
+  "students": [
+    {
+      "$oid": "673c6f1c2be72250b25ada2e"
+    },
+    {
+      "$oid": "673c83c32bac4e19edd8b043"
+    },
+    {
+      "studentId": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      },
+      "progress": 0,
+      "_id": {
+        "$oid": "673efecace7a5942a514d800"
+      }
+    },
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      }
+    },
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      }
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-11-21T10:09:15.289Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c59dc2b6e94c5dfa4776b"
+  },
+  "id": 2,
+  "title": "Web Development Bootcamp",
+  "description": "A comprehensive course covering HTML, CSS, JavaScript, and React.",
+  "instructor": {
+    "$oid": "673f0abe4f341e98872c1441"
+  },
+  "content": [
+    "HTML and CSS Basics",
+    "Responsive Design",
+    "JavaScript Fundamentals",
+    "React.js and State Management"
+  ],
+  "duration": "8 weeks",
+  "price": "$199",
+  "enrolledStudents": 502,
+  "image": "https://via.placeholder.com/150",
+  "__v": 2,
+  "progress": [],
+  "ratings": [],
+  "reviews": [],
+  "students": [
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c71d4c59e3e4e010cf9be"
+      }
+    },
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      }
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-11-21T11:49:30.735Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c59dc2b6e94c5dfa4776c"
+  },
+  "id": 3,
+  "title": "Data Science and Machine Learning",
+  "description": "A course for those interested in data science, including machine learning algorithms.",
+  "instructor": {
+    "$oid": "673f0a934f341e98872c143d"
+  },
+  "content": [
+    "Introduction to Data Science",
+    "Data Wrangling and Preprocessing",
+    "Machine Learning Algorithms",
+    "Building Predictive Models"
+  ],
+  "duration": "12 weeks",
+  "price": "$299",
+  "enrolledStudents": 150,
+  "image": "https://via.placeholder.com/150"
+},
+{
+  "_id": {
+    "$oid": "674ecf9c3a9ae36a057172b9"
+  },
+  "id": 1,
+  "title": "Introduction to Programming",
+  "description": "Learn the basics of programming using Python. Ideal for beginners.",
+  "instructor": {
+    "$oid": "673c83c32bac4e19edd8b043"
+  },
+  "content": [
+    "Introduction to Python",
+    "Variables and Data Types",
+    "Loops and Conditional Statements",
+    "Functions and Modules"
+  ],
+  "duration": "4 weeks",
+  "price": "$99",
+  "enrolledStudents": 204,
+  "image": "https://via.placeholder.com/150",
+  "__v": 8,
+  "progress": [],
+  "ratings": [],
+  "reviews": [
+    {
+      "rating": 3,
+      "_id": {
+        "$oid": "673ef94b82f16f422255fd24"
+      }
+    },
+    {
+      "rating": 3,
+      "_id": {
+        "$oid": "673f01f0b537ee1fb2e6f703"
+      }
+    },
+    {
+      "rating": 5,
+      "_id": {
+        "$oid": "673f06cb4f341e98872c1353"
+      }
+    }
+  ],
+  "students": [
+    {
+      "$oid": "673c6f1c2be72250b25ada2e"
+    },
+    {
+      "$oid": "673c83c32bac4e19edd8b043"
+    },
+    {
+      "studentId": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      },
+      "progress": 0,
+      "_id": {
+        "$oid": "673efecace7a5942a514d800"
+      }
+    },
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      }
+    },
+    {
+      "progress": 0,
+      "_id": {
+        "$oid": "673c83c32bac4e19edd8b043"
+      }
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-11-21T10:09:15.289Z"
+  }
+}]
