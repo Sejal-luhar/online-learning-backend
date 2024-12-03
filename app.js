@@ -18,7 +18,7 @@ var app = express();
 // Middleware to enable CORS
 app.use(
   cors({
-    origin: 'http://localhost:5173', // Frontend URL (React app running on port 3000)
+    origin: true, // Frontend URL (React app running on port 3000)
     credentials: true, // Allow cookies from the frontend
   })
 );
