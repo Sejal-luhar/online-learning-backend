@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Programming",
+    "description": "Learn the basics of programming using Python. Ideal for beginners.",
+    "instructor": {
+      "name": "John Doe",
+      "email": "johndoe@example.com"
+    },
+    "content": [
+      "Introduction to Python",
+      "Variables and Data Types",
+      "Loops and Conditional Statements",
+      "Functions and Modules"
+    ],
+    
+    "duration": "4 weeks",
+    "price": "$99",
+    "enrolledStudents": 200,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "title": "Web Development Bootcamp",
+    "description": "A comprehensive course covering HTML, CSS, JavaScript, and React.",
+    "instructor": {
+      "name": "Jane Smith",
+      "email": "janesmith@example.com"
+    },
+    "content": [
+      "HTML and CSS Basics",
+      "Responsive Design",
+      "JavaScript Fundamentals",
+      "React.js and State Management"
+    ],
+    "duration": "8 weeks",
+    "price": "$199",
+    "enrolledStudents": 500,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 3,
+    "title": "Data Science and Machine Learning",
+    "description": "A course for those interested in data science, including machine learning algorithms.",
+    "instructor": {
+      "name": "Alex Lee",
+      "email": "alexlee@example.com"
+    },
+    "content": [
+      "Introduction to Data Science",
+      "Data Wrangling and Preprocessing",
+      "Machine Learning Algorithms",
+      "Building Predictive Models"
+    ],
+    "duration": "12 weeks",
+    "price": "$299",
+    "enrolledStudents": 150,
+    "image": "https://via.placeholder.com/150"
+  }
+]
