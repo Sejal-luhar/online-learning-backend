@@ -3,47 +3,57 @@ const passport = require('passport');
 const User = require('../models/User'); // Ensure the User model is correctly implemented
 const router = express.Router();
 
+// Allowed roles
+const ALLOWED_ROLES = ['instructor', 'student'];
+
 // Signup Route
-router.post('/signup', (req, res) => {
-  const { email, password, username, role } = req.body; // Get the role from the request
+router.post('/signup', async (req, res) => {
+  try {
+    const { email, password, username, role } = req.body;
 
-  // Validate that role is either 'instructor' or 'student'
-  if (!role || !['instructor', 'student'].includes(role)) {
-    return res.status(400).json({ message: 'Invalid role. Role must be either "instructor" or "student".' });
-  }
-
-  // Create a new user with the specified role
-  const newUser = new User({
-    email,
-    username,
-    role, // Set the role to 'instructor' or 'student' from the request
-  });
-
-  // Register the user with Passport
-  User.register(newUser, password, (err, user) => {
-    if (err) {
-      return res.status(500).json({ message: err.message });
+    // Validate role
+    if (!role || !ALLOWED_ROLES.includes(role)) {
+      return res.status(400).json({ message: 'Invalid role. Role must be either "instructor" or "student".' });
     }
-    // Successful registration
-    res.status(201).json({ message: 'User registered successfully', user });
-  });
+
+    // Create a new user object
+    const newUser = new User({
+      email,
+      username,
+      role, // Set the role from the request
+    });
+
+    // Register the user with Passport
+    const registeredUser = await User.register(newUser, password);
+    res.status(201).json({
+      message: 'User registered successfully',
+      user: {
+        username: registeredUser.username,
+        email: registeredUser.email,
+        role: registeredUser.role,
+      },
+    });
+  } catch (err) {
+    console.error('Signup error:', err);
+    res.status(500).json({ message: 'Error registering user', error: err.message });
+  }
 });
 
 // Login Route
 router.post('/login', (req, res, next) => {
-  console.log('Received login data:', req.body); // Log to check the payload
+  console.log('Received login data:', req.body);
 
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       console.error('Passport error:', err);
       return res.status(500).json({ message: 'Server error', error: err.message });
     }
-    
+
     if (!user) {
       console.error('Authentication failed:', info);
       return res.status(400).json({ message: info?.message || 'Invalid email or password' });
     }
-    
+
     req.logIn(user, (loginErr) => {
       if (loginErr) {
         console.error('Login error:', loginErr);
@@ -56,14 +66,12 @@ router.post('/login', (req, res, next) => {
         user: {
           username: user.username,
           email: user.email,
+          role: user.role,
         },
-        // No token needed for session-based auth, session data will be handled automatically
       });
     });
   })(req, res, next);
 });
-
-
 
 // Logout Route
 router.post('/logout', (req, res) => {
@@ -72,7 +80,11 @@ router.post('/logout', (req, res) => {
       console.error('Logout error:', err);
       return res.status(500).json({ message: 'Error logging out', error: err.message });
     }
-    res.status(200).json({ message: 'Logout successful' });
+
+    req.session.destroy(() => {
+      res.clearCookie('connect.sid'); // Clear session cookie
+      res.status(200).json({ message: 'Logout successful' });
+    });
   });
 });
 
@@ -85,6 +97,7 @@ router.get(
   passport.authenticate('google', { failureRedirect: '/auth/login' }),
   (req, res) => {
     // Redirect to profile after successful login
+    console.log('Google OAuth login successful:', req.user);
     res.redirect('/profile');
   }
 );
