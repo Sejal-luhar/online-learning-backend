@@ -18,7 +18,7 @@ var app = express();
 // Middleware to enable CORS
 app.use(
   cors({
-    origin: true, // Frontend URL (React app running on port 3000)
+    origin: 'https://online-learning-frontend-alpha.vercel.app', // Frontend URL (React app running on port 3000)
     credentials: true, // Allow cookies from the frontend
   })
 );
