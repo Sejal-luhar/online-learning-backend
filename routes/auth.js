@@ -75,19 +75,22 @@ router.post('/login', (req, res, next) => {
 
 // Logout Route
 router.post('/logout', (req, res) => {
-  req.logout((err) => {
-    if (err) {
-      console.error('Logout error:', err);
-      return res.status(500).json({ message: 'Error logging out', error: err.message });
-    }
+  try {
+    // Manually clear session if req.logout is not working
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Session destroy error:', err);
+        return res.status(500).json({ message: 'Error logging out', error: err.message });
+      }
 
-    req.session.destroy(() => {
-      res.clearCookie('connect.sid'); // Clear session cookie
+      res.clearCookie('connect.sid', { path: '/' }); // Clear the session cookie
       res.status(200).json({ message: 'Logout successful' });
     });
-  });
+  } catch (err) {
+    console.error('Logout error:', err);
+    res.status(500).json({ message: 'Logout failed', error: err.message });
+  }
 });
-
 // Google OAuth Login Route
 router.get('/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
